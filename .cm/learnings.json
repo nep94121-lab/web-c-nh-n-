@@ -1,0 +1,14 @@
+[
+  {
+    "id": "L001",
+    "date": "2026-04-14",
+    "error": "Long unbroken text like emails overflow and hide instead of wrapping",
+    "cause": "Lack of spaces in the email strings combined with parent container overflow:hidden",
+    "prevention": "Ensure text block tags used for emails or links have word-break: break-word and white-space: pre-wrap",
+    "scope": "module:layout",
+    "ttl": 30,
+    "reinforceCount": 0,
+    "lastRelevant": "2026-04-14",
+    "status": "active"
+  }
+]

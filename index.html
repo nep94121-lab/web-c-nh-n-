@@ -1,317 +1,355 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nguyễn Tuấn Anh — AI Architect</title>
-    <!-- Fonts -->
+    <meta name="description" content="Portfolio của Nguyễn Tuấn Anh, AI Architect xây dựng workflow tự động hóa, hệ thống AI và sản phẩm dữ liệu.">
+    <meta name="author" content="Nguyen Tuan Anh">
+    <meta name="theme-color" content="#0a0a0a">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Nguyen Tuan Anh - AI Architect">
+    <meta property="og:description" content="Turning raw data into intelligent workflows.">
+    <meta property="og:image" content="./assets/images/tuananh-nobg.png">
+    <meta property="og:locale" content="vi_VN">
+    <title>Nguyen Tuan Anh - AI Architect</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:ital,wght@0,300;0,400;0,600;0,800;0,900;1,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..900&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" crossorigin="anonymous">
+    <link rel="preload" as="image" href="./assets/images/tuananh-nobg.png">
+    <link rel="stylesheet" href="css/styles.css?v=2">
 </head>
 <body>
-    <div class="noise"></div>
-    <div class="cursor">
-        <div class="cursor-text">View</div>
+    <a class="skip-link" href="#site-content">Skip to content</a>
+    <div class="breathing-light" aria-hidden="true"></div>
+    <div class="ambient-orbs" aria-hidden="true">
+        <span class="ambient-orb ambient-orb--one"></span>
+        <span class="ambient-orb ambient-orb--two"></span>
+        <span class="ambient-orb ambient-orb--three"></span>
+        <span class="ambient-orb ambient-orb--four"></span>
+    </div>
+    <div class="noise-texture" aria-hidden="true"></div>
+    <div class="cursor-dot" aria-hidden="true"></div>
+    <div class="cursor-ring" aria-hidden="true"></div>
+
+    <div class="loader" aria-live="polite" aria-label="Loading portfolio">
+        <div class="loader__inner">
+            <div class="loader__mark" aria-hidden="true">NTA</div>
+            <div class="loader__pulse" aria-hidden="true"></div>
+            <div class="loader__line" aria-hidden="true"><span></span></div>
+        </div>
     </div>
 
-    <!-- Navigation -->
-    <header class="navbar">
-        <div class="nav-brand magnetic" data-strength="20">
-            <span class="logo">NTA.</span>
-        </div>
-        <nav class="nav-pill">
-            <a href="#hero" class="nav-link magnetic hover-flip" data-strength="20" data-hover="HOME">
-                <span>HOME</span>
-            </a>
-            <a href="#projects" class="nav-link magnetic hover-flip" data-strength="20" data-hover="PROJECTS">
-                <span>PROJECTS</span>
-            </a>
-            <a href="#contact" class="nav-link magnetic hover-flip" data-strength="20" data-hover="CONTACT">
-                <span>CONTACT</span>
-            </a>
+    <header class="site-header" data-header>
+        <a class="brand magnetic" href="#hero" aria-label="Nguyen Tuan Anh home">NTA</a>
+        <nav class="desktop-nav" aria-label="Primary navigation">
+            <a href="#projects">Projects</a>
+            <a href="#experience">Experience</a>
+            <a href="#skills">Skills</a>
+            <a href="#contact">Contact</a>
         </nav>
+        <button class="menu-toggle magnetic" type="button" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
     </header>
 
-    <main id="smooth-wrapper">
-        <div id="smooth-content">
-            
-            <section id="hero" class="hero-section">
-                <!-- Massive Edge to Edge Text -->
-                <div class="hero-title">
-                    <div class="hero-line edge-text"><span class="split-run">TURNING RAW DATA</span></div>
-                    <div class="hero-line edge-text stroke-text"><span class="split-run">INTO INTELLIGENT</span></div>
-                    <div class="hero-line edge-text italic-text"><span class="split-run">WORKFLOWS</span></div>
-                </div>
-                
-                <div class="hero-bottom-container">
-                    <p class="hero-sub fade-up">Người sử dụng sáng tạo AI, biến những công cụ mạnh mẽ nhất thành quy trình tự động hóa hiệu quả.</p>
-                </div>
-            </section>
+    <aside id="mobile-menu" class="mobile-menu" aria-hidden="true">
+        <nav class="mobile-menu__nav" aria-label="Mobile navigation">
+            <a href="#hero">Home</a>
+            <a href="#projects">Projects</a>
+            <a href="#experience">Experience</a>
+            <a href="#education">Education</a>
+            <a href="#skills">Skills</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </aside>
 
-            <!-- Marquee -->
-            <div class="marquee-container">
-                <div class="marquee-content">
-                    NGUYỄN TUẤN ANH • AI ARCHITECT • CÔNG NGHỆ CHUYỂN ĐỔI SỐ • NGUYỄN TUẤN ANH • AI ARCHITECT • CÔNG NGHỆ CHUYỂN ĐỔI SỐ •
+    <main id="site-content">
+        <section id="hero" class="hero" aria-labelledby="hero-title">
+            <div class="hero__mesh" aria-hidden="true"></div>
+            <div class="hero__grid container">
+                <div class="hero__copy">
+                    <p class="hero__eyebrow reveal-line">Nguyen Tuan Anh / AI Architect</p>
+                    <h1 id="hero-title" class="hero__title split-hero" aria-label="Turning raw data into intelligent workflows">
+                        <span class="hero-word hero-word--thin">TURNING</span>
+                        <span class="hero-word hero-word--strong">RAW DATA</span>
+                        <span class="hero-word hero-word--accent">INTO</span>
+                        <span class="hero-word hero-word--strong hero-word--indent">INTELLIGENT</span>
+                        <span class="hero-word hero-word--accent hero-word--underline">WORKFLOWS</span>
+                    </h1>
+                    <p class="hero__subtitle reveal-up">Người sử dụng sáng tạo AI, biến những công cụ mạnh mẽ nhất thành quy trình tự động hóa hiệu quả.</p>
+                    <div class="hero__actions reveal-up">
+                        <a class="button button--primary magnetic" href="#projects"><span>View projects</span></a>
+                        <a class="button button--ghost magnetic" href="mailto:nguyentuananh512005@gmail.com"><span>Contact me</span></a>
+                    </div>
+                </div>
+
+                <div class="hero__visual reveal-scale" aria-label="Portrait of Nguyen Tuan Anh">
+                    <div class="orb orb--hero" aria-hidden="true"></div>
+                    <figure class="profile-orbit parallax-item" data-speed="-0.12" data-tilt>
+                        <span class="profile-orbit__ring profile-orbit__ring--one" aria-hidden="true"></span>
+                        <span class="profile-orbit__ring profile-orbit__ring--two" aria-hidden="true"></span>
+                        <img src="./assets/images/tuananh-nobg.png" alt="Nguyen Tuan Anh" fetchpriority="high">
+                    </figure>
+                    <div class="hero-chip hero-chip--top parallax-item" data-speed="0.18">AI Architect</div>
+                    <div class="hero-chip hero-chip--middle parallax-item" data-speed="-0.08">Workflow Systems</div>
+                    <div class="hero-chip hero-chip--bottom parallax-item" data-speed="0.12">Data to Action</div>
+                    <div class="signal-stack" aria-hidden="true">
+                        <span></span><span></span><span></span><span></span>
+                    </div>
                 </div>
             </div>
+            <a class="scroll-cue magnetic" href="#projects" aria-label="Scroll to projects"><span></span>Scroll</a>
+        </section>
 
-            <!-- Wipe Reveal Projects -->
-            <section id="projects" class="projects-section dark-bg">
-                <div class="container project-layout">
-                    <div class="projects-list">
-                        <!-- Project 1 -->
-                        <div class="project-item active" data-index="0">
-                            <h3 class="hover-flip-heavy" data-hover="AI Education Platform"><span>AI Education Platform</span></h3>
-                            <p class="project-tag">EdTech Integration</p>
-                        </div>
-                        <!-- Project 2 -->
-                        <div class="project-item" data-index="1">
-                            <h3 class="hover-flip-heavy" data-hover="Smart Workflow Auto"><span>Smart Workflow Auto</span></h3>
-                            <p class="project-tag">Productivity & Automation</p>
-                        </div>
-                        <!-- Project 3 -->
-                        <div class="project-item" data-index="2">
-                            <h3 class="hover-flip-heavy" data-hover="Data Analysis Tool"><span>Data Analysis Tool</span></h3>
-                            <p class="project-tag">Data Visualization</p>
-                        </div>
-                    </div>
-
-                    <div class="projects-images-wrapper">
-                        <div class="image-parallax-container">
-                            <div class="wipe-image img-1 active">
-                                <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1200&auto=format&fit=crop" class="parallax-img" alt="P1">
-                            </div>
-                            <div class="wipe-image img-2">
-                                <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1200&auto=format&fit=crop" class="parallax-img" alt="P2">
-                            </div>
-                            <div class="wipe-image img-3">
-                                <img src="https://images.unsplash.com/photo-1639322537231-2f206e06af84?q=80&w=1200&auto=format&fit=crop" class="parallax-img" alt="P3">
-                            </div>
-                        </div>
-                    </div>
+        <section id="projects" class="section projects" aria-labelledby="projects-title">
+            <div class="container">
+                <div class="section-heading" data-animate>
+                    <p class="section-kicker reveal-line">Selected projects</p>
+                    <h2 id="projects-title" class="section-title split-text">Systems built for learning, automation and insight.</h2>
                 </div>
-            </section>
-            <!-- Services / What I do -->
-            <section id="services" class="services-section">
-                <div class="container">
-                    <h4 class="es-label" style="border-bottom:none; margin-bottom: 2rem;">VŨ KHÍ & NĂNG LỰC</h4>
-                    <div class="services-list">
-                        <div class="srv-item fade-up">
-                            <span class="srv-num">01</span>
-                            <div class="srv-content">
-                                <h3 class="hover-flip-heavy" data-hover="TƯ DUY TỰ ĐỘNG HOÁ AI"><span>TƯ DUY TỰ ĐỘNG HOÁ AI</span></h3>
+                <div class="project-grid">
+                    <article class="project-card project-card--featured reveal-up" data-tilt>
+                        <a href="#contact" aria-label="Discuss AI Education Platform">
+                            <div class="project-card__media image-wipe parallax-item" data-speed="0.08">
+                                <img src="./assets/projects/project-teaching.png" alt="AI Education Platform preview" loading="lazy">
+                                <span class="project-card__arrow" aria-hidden="true">↗</span>
                             </div>
-                            <div class="srv-img-box">
-                                <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=400&fit=crop" alt="AI">
+                            <div class="project-card__body">
+                                <span class="project-card__number">01</span>
+                                <h3>AI Education Platform</h3>
+                                <p>EdTech integration that turns teaching content into guided AI-supported learning flows.</p>
+                                <div class="tech-tags" aria-label="Technologies"><span>AI Workflow</span><span>Education</span><span>Automation</span></div>
                             </div>
-                            <div class="srv-icon">+</div>
-                        </div>
-                        <div class="srv-item fade-up">
-                            <span class="srv-num">02</span>
-                            <div class="srv-content">
-                                <h3 class="hover-flip-heavy" data-hover="THIẾT KẾ WEB HIGH-FIDELITY"><span>THIẾT KẾ WEB HIGH-FIDELITY</span></h3>
+                        </a>
+                    </article>
+                    <article class="project-card reveal-up" data-tilt>
+                        <a href="#contact" aria-label="Discuss Smart Workflow Auto">
+                            <div class="project-card__media image-wipe parallax-item" data-speed="0.06">
+                                <img src="./assets/projects/project-firecrawl.png" alt="Smart Workflow Auto preview" loading="lazy">
+                                <span class="project-card__arrow" aria-hidden="true">↗</span>
                             </div>
-                            <div class="srv-img-box">
-                                <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=400&fit=crop" alt="Web">
+                            <div class="project-card__body">
+                                <span class="project-card__number">02</span>
+                                <h3>Smart Workflow Auto</h3>
+                                <p>Research, extraction and workflow automation shaped for faster operating decisions.</p>
+                                <div class="tech-tags" aria-label="Technologies"><span>Firecrawl</span><span>Agents</span><span>Ops</span></div>
                             </div>
-                            <div class="srv-icon">+</div>
-                        </div>
-                        <div class="srv-item fade-up">
-                            <span class="srv-num">03</span>
-                            <div class="srv-content">
-                                <h3 class="hover-flip-heavy" data-hover="KIẾN TRÚC HỆ THỐNG CLOUD"><span>KIẾN TRÚC HỆ THỐNG CLOUD</span></h3>
+                        </a>
+                    </article>
+                    <article class="project-card reveal-up" data-tilt>
+                        <a href="#contact" aria-label="Discuss Data Analysis Tool">
+                            <div class="project-card__media image-wipe parallax-item" data-speed="0.04">
+                                <img src="./assets/projects/project-tiktok.png" alt="Data Analysis Tool preview" loading="lazy">
+                                <span class="project-card__arrow" aria-hidden="true">↗</span>
                             </div>
-                            <div class="srv-img-box">
-                                <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=400&fit=crop" alt="Cloud">
+                            <div class="project-card__body">
+                                <span class="project-card__number">03</span>
+                                <h3>Data Analysis Tool</h3>
+                                <p>Signal-focused dashboard work for campaign learning, pattern finding and next actions.</p>
+                                <div class="tech-tags" aria-label="Technologies"><span>Analytics</span><span>TikTok</span><span>Insights</span></div>
                             </div>
-                            <div class="srv-icon">+</div>
-                        </div>
-                    </div>
+                        </a>
+                    </article>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <!-- Huge Stats -->
-            <section id="stats" class="stats-section">
-                <div class="container">
-                    <h2 class="huge-display split-run">FROM SHAPING IDEAS<br><span class="stroke-text">TO SHIPPING PRODUCTION AI</span></h2>
-                    
-                    <div class="divider"></div>
-                    
-                    <div class="stats-row">
-                        <div class="stat-box fade-up">
-                            <p class="s-label">EXPERIENCE</p>
-                            <p class="s-num">3+ <span class="s-small">YRS</span></p>
-                        </div>
-                        <div class="stat-box fade-up">
-                            <p class="s-label">DELIVERED</p>
-                            <p class="s-num">15+ <span class="s-small">PROJ</span></p>
-                        </div>
-                        <div class="stat-box fade-up">
-                            <p class="s-label">PARTNERS</p>
-                            <p class="s-num">10+ <span class="s-small">CLI</span></p>
-                        </div>
-                    </div>
+        <section class="marquee-section" aria-hidden="true">
+            <div class="marquee-track">
+                <span class="marquee-item">AI ARCHITECT</span>
+                <span class="marquee-sep">✦</span>
+                <span class="marquee-item">WORKFLOW DESIGN</span>
+                <span class="marquee-sep">✦</span>
+                <span class="marquee-item">DATA AUTOMATION</span>
+                <span class="marquee-sep">✦</span>
+                <span class="marquee-item">CREATIVE CODING</span>
+                <span class="marquee-sep">✦</span>
+                <span class="marquee-item">AI ARCHITECT</span>
+                <span class="marquee-sep">✦</span>
+                <span class="marquee-item">WORKFLOW DESIGN</span>
+                <span class="marquee-sep">✦</span>
+                <span class="marquee-item">DATA AUTOMATION</span>
+                <span class="marquee-sep">✦</span>
+                <span class="marquee-item">CREATIVE CODING</span>
+                <span class="marquee-sep">✦</span>
+            </div>
+        </section>
+
+        <section id="stats" class="section stats" aria-labelledby="stats-title">
+            <div class="container stats__layout">
+                <div>
+                    <p class="section-kicker reveal-line">Impact</p>
+                    <h2 id="stats-title" class="section-title split-text">From sharp ideas to shipped AI systems.</h2>
                 </div>
-            </section>
-
-            <!-- The Journey / Experience -->
-            <section id="experience" class="experience-section">
-                <div class="container">
-                    <h2 class="huge-display split-run">THE JOURNEY<br><span class="stroke-text">SO FAR</span></h2>
-                    
-                    <div class="timeline-wrapper">
-                        <!-- Item 1 -->
-                        <div class="timeline-row fade-up">
-                            <div class="tl-timeline">
-                                <span class="tl-year">2025 - 2026</span>
-                            </div>
-                            <div class="tl-data">
-                                <h3 class="tl-role hover-flip-heavy" data-hover="GIẢNG VIÊN THIÊN VĂN"><span>GIẢNG VIÊN THIÊN VĂN</span></h3>
-                                <div class="tl-meta">
-                                    <p class="tl-company">ASK TROKID</p>
-                                    <p class="tl-desc">Giảng dạy về kiến thức thiên văn học cho học sinh và sinh viên.</p>
-                                </div>
-                            </div>
+                <div class="stats-grid">
+                    <article class="stat-card stat-card--large reveal-up">
+                        <div>
+                            <strong><span class="counter" data-target="3">0</span>+</strong>
+                            <p>years experience</p>
                         </div>
-
-                        <!-- Item 2 -->
-                        <div class="timeline-row fade-up">
-                            <div class="tl-timeline">
-                                <span class="tl-year">2024 - 2025</span>
-                            </div>
-                            <div class="tl-data">
-                                <h3 class="tl-role hover-flip-heavy" data-hover="PRODUCT GUIDE"><span>PRODUCT GUIDE</span></h3>
-                                <div class="tl-meta">
-                                    <p class="tl-company">ADELA</p>
-                                    <p class="tl-desc">Đồng hành và hướng dẫn khách hàng sử dụng sản phẩm phần mềm.</p>
-                                </div>
-                            </div>
+                        <div class="stat-progress" aria-hidden="true">
+                            <svg viewBox="0 0 120 120" role="img">
+                                <circle cx="60" cy="60" r="48"></circle>
+                                <circle cx="60" cy="60" r="48"></circle>
+                            </svg>
+                            <span>AI</span>
                         </div>
-
-                        <!-- Item 3 -->
-                        <div class="timeline-row fade-up">
-                            <div class="tl-timeline">
-                                <span class="tl-year">2023 - 2024</span>
-                            </div>
-                            <div class="tl-data">
-                                <h3 class="tl-role hover-flip-heavy" data-hover="E-COM DIRECTOR"><span>E-COM DIRECTOR</span></h3>
-                                <div class="tl-meta">
-                                    <p class="tl-company">BRAND QUẦN ÁO TMĐT</p>
-                                    <p class="tl-desc">Giám đốc vận hành thương mại điện tử: Chạy quảng cáo, lên concept ý tưởng, vận chuyển và đóng hàng.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Item 4 -->
-                        <div class="timeline-row fade-up">
-                            <div class="tl-timeline">
-                                <span class="tl-year">2023 - 2024</span>
-                            </div>
-                            <div class="tl-data">
-                                <h3 class="tl-role hover-flip-heavy" data-hover="PROBLEM SOLVER"><span>PROBLEM SOLVER</span></h3>
-                                <div class="tl-meta">
-                                    <p class="tl-company">NHÀ HÀNG HẢI SẢN</p>
-                                    <p class="tl-desc">Order & Tạp vụ. Chuyên gia giải quyết sự khó lựa chọn của khách hàng.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    </article>
+                    <article class="stat-card reveal-up">
+                        <strong><span class="counter" data-target="15">0</span>+</strong>
+                        <p>projects delivered</p>
+                    </article>
+                    <article class="stat-card reveal-up">
+                        <strong><span class="counter" data-target="10">0</span>+</strong>
+                        <p>partners</p>
+                    </article>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <!-- Education & Skills -->
-            <section id="education" class="edu-skills-section">
-                <div class="container edu-layout">
-                    <!-- Education -->
-                    <div class="edu-col fade-up">
-                        <h4 class="es-label">EDUCATION</h4>
-                        <div class="es-item">
-                            <span class="es-year">2025 - 2027</span>
-                            <h3 class="es-title hover-flip-heavy" data-hover="ĐH BÁCH KHOA HÀ NỘI"><span>ĐH BÁCH KHOA HÀ NỘI</span></h3>
-                            <p class="es-sub">Điện tử Viễn thông</p>
-                        </div>
-                        <div class="es-item">
-                            <span class="es-year">2023 - 2024</span>
-                            <h3 class="es-title hover-flip-heavy" data-hover="CĐ CÔNG THƯƠNG HÀ NỘI"><span>CĐ CÔNG THƯƠNG HÀ NỘI</span></h3>
-                            <p class="es-sub">Công nghệ thông tin</p>
-                        </div>
-                    </div>
+        <section id="experience" class="section timeline-section" aria-labelledby="experience-title">
+            <div class="container">
+                <div class="section-heading" data-animate>
+                    <p class="section-kicker reveal-line">Experience</p>
+                    <h2 id="experience-title" class="section-title split-text">Teaching, product, commerce and operations.</h2>
+                </div>
+                <div class="timeline">
+                    <article class="timeline-item reveal-up">
+                        <time>2025-2026</time>
+                        <div class="timeline-item__content"><h3>Giảng viên thiên văn</h3><p>ASK TROKID</p></div>
+                        <span class="timeline-dot" aria-hidden="true"></span>
+                        <span class="timeline-item__arrow" aria-hidden="true">→</span>
+                    </article>
+                    <article class="timeline-item reveal-up">
+                        <time>2024-2025</time>
+                        <div class="timeline-item__content"><h3>Product Guide</h3><p>ADELA</p></div>
+                        <span class="timeline-dot" aria-hidden="true"></span>
+                        <span class="timeline-item__arrow" aria-hidden="true">→</span>
+                    </article>
+                    <article class="timeline-item reveal-up">
+                        <time>2023-2024</time>
+                        <div class="timeline-item__content"><h3>E-com Director</h3><p>Brand quần áo TMĐT</p></div>
+                        <span class="timeline-dot" aria-hidden="true"></span>
+                        <span class="timeline-item__arrow" aria-hidden="true">→</span>
+                    </article>
+                    <article class="timeline-item reveal-up">
+                        <time>2023-2024</time>
+                        <div class="timeline-item__content"><h3>Problem Solver</h3><p>Nhà hàng hải sản</p></div>
+                        <span class="timeline-dot" aria-hidden="true"></span>
+                        <span class="timeline-item__arrow" aria-hidden="true">→</span>
+                    </article>
+                </div>
+            </div>
+        </section>
 
-                    <!-- Skills -->
-                    <div class="skills-col fade-up">
-                        <h4 class="es-label">CORE SKILLS</h4>
-                        <div class="skills-grid">
-                            <div class="skill-tag">Ngôn ngữ & Thuyết trình</div>
-                            <div class="skill-tag">Nắm bắt Công nghệ mới</div>
-                            <div class="skill-tag">Xử lý Vấn đề đa chiều</div>
-                            <div class="skill-tag">Tư duy Sáng tạo AI</div>
-                            <div class="skill-tag">Sức khoẻ thể chất dẻo dai</div>
-                        </div>
-                    </div>
+        <section id="education" class="section education" aria-labelledby="education-title">
+            <div class="container education__grid">
+                <div data-animate>
+                    <p class="section-kicker reveal-line">Education</p>
+                    <h2 id="education-title" class="section-title split-text">Learning path with engineering depth.</h2>
                 </div>
-            </section>
+                <div class="education-list">
+                    <article class="education-card edu-card reveal-up" data-tilt>
+                        <time>2025-2027</time>
+                        <h3>ĐH Bách Khoa Hà Nội</h3>
+                        <p>Điện tử Viễn thông</p>
+                    </article>
+                    <article class="education-card edu-card reveal-up" data-tilt>
+                        <time>2023-2024</time>
+                        <h3>CĐ Công Thương Hà Nội</h3>
+                        <p>Công nghệ thông tin</p>
+                    </article>
+                </div>
+            </div>
+        </section>
 
-            <!-- About Me Section -->
-            <section id="about" class="testimonials-section dark-bg">
-                <div class="container t-flex">
-                    <div class="t-image-wrapper">
-                        <div class="t-parallax-inner">
-                            <img src="./assets/images/e81daad4-2689-4f02-933d-8c1e60e1b8bb.jpg" class="parallax-img t-avatar-large" alt="Nguyễn Tuấn Anh">
-                        </div>
-                    </div>
-                    <div class="t-content">
-                        <h4 class="es-label" style="border-bottom: none; margin-bottom: 2rem;">VỀ BẢN THÂN</h4>
-                        <p class="t-quote fade-up">Không chỉ là một kỹ sư phần mềm, tôi là một kiến trúc sư chuyên biệt xây dựng nên những <span class="highlight">hệ thống tự động hoá và tư duy AI</span> cốt lõi. Triết lý vận hành của tôi là biến những bài toán hóc búa nhất thành kiến trúc bền vững, với tốc độ bạo liệt và độ chính xác tuyệt đối.</p>
-                        <div class="t-author fade-up">
-                            <h4>Nguyễn Tuấn Anh</h4>
-                            <span>AI Architect & Developer</span>
-                            <div style="margin-top: 3rem;">
-                                <a href="./assets/cv/Màu Đen Và Trắng Tối Giản Sơ Yếu Lý Lịch.pdf" download class="cv-btn">TẢI XUỐNG CV (PDF) -></a>
-                            </div>
-                        </div>
-                    </div>
+        <section id="skills" class="section skills" aria-labelledby="skills-title">
+            <div class="container">
+                <div class="section-heading" data-animate>
+                    <p class="section-kicker reveal-line">Skills</p>
+                    <h2 id="skills-title" class="section-title split-text">Capabilities for fast-moving AI work.</h2>
                 </div>
-            </section>
-            <!-- Infinite Manifesto Ticker -->
-            <section class="manifesto-section">
-                <div class="marquee-container border-tb" style="background: var(--bg-dark); border-bottom: none;">
-                    <div class="marquee-content manifesto-track" style="animation-duration: 40s;">
-                        <!-- X4 content for smooth generic loop -->
-                        <span>CRAFTING SYSTEMS THAT THINK • NO TEMPLATES • NO EXCUSES • DELIVERING HIGH-END PRODUCTION QUALITY • </span>
-                        <span>CRAFTING SYSTEMS THAT THINK • NO TEMPLATES • NO EXCUSES • DELIVERING HIGH-END PRODUCTION QUALITY • </span>
-                    </div>
+            </div>
+            <div class="skills-marquee reveal-up" aria-label="Skill list">
+                <div class="skills-row skills-row--left">
+                    <span class="skill-pill">Research Automation</span>
+                    <span class="skill-pill">Workflow Design</span>
+                    <span class="skill-pill">Prompt Systems</span>
+                    <span class="skill-pill">Sức khoẻ thể chất dẻo dai</span>
+                    <span class="skill-pill">Tư duy Sáng tạo AI</span>
+                    <span class="skill-pill">Xử lý Vấn đề đa chiều</span>
+                    <span class="skill-pill">Nắm bắt Công nghệ mới</span>
+                    <span class="skill-pill">Ngôn ngữ và Thuyết trình</span>
+                    <span class="skill-pill">Research Automation</span>
+                    <span class="skill-pill">Workflow Design</span>
+                    <span class="skill-pill">Prompt Systems</span>
+                    <span class="skill-pill">Sức khoẻ thể chất dẻo dai</span>
+                    <span class="skill-pill">Tư duy Sáng tạo AI</span>
+                    <span class="skill-pill">Xử lý Vấn đề đa chiều</span>
+                    <span class="skill-pill">Nắm bắt Công nghệ mới</span>
+                    <span class="skill-pill">Ngôn ngữ và Thuyết trình</span>
                 </div>
-            </section>
+                <div class="skills-row skills-row--right">
+                    <span class="skill-pill">Ngôn ngữ và Thuyết trình</span>
+                    <span class="skill-pill">Nắm bắt Công nghệ mới</span>
+                    <span class="skill-pill">Xử lý Vấn đề đa chiều</span>
+                    <span class="skill-pill">Tư duy Sáng tạo AI</span>
+                    <span class="skill-pill">Sức khoẻ thể chất dẻo dai</span>
+                    <span class="skill-pill">Prompt Systems</span>
+                    <span class="skill-pill">Workflow Design</span>
+                    <span class="skill-pill">Research Automation</span>
+                    <span class="skill-pill">Ngôn ngữ và Thuyết trình</span>
+                    <span class="skill-pill">Nắm bắt Công nghệ mới</span>
+                    <span class="skill-pill">Xử lý Vấn đề đa chiều</span>
+                    <span class="skill-pill">Tư duy Sáng tạo AI</span>
+                    <span class="skill-pill">Sức khoẻ thể chất dẻo dai</span>
+                    <span class="skill-pill">Prompt Systems</span>
+                    <span class="skill-pill">Workflow Design</span>
+                    <span class="skill-pill">Research Automation</span>
+                </div>
+            </div>
+        </section>
 
-            <!-- Footer Full Width Attack -->
-            <footer id="contact" class="footer-section">
-                <div class="footer-massive-text magnetic" data-strength="30">
-                    <h2 class="split-run">LET'S TALK</h2>
+        <section id="about" class="section about" aria-labelledby="about-title">
+            <div class="container about__grid">
+                <div class="about__media reveal-scale parallax-item" data-speed="-0.08" data-tilt>
+                    <div class="orb orb--about" aria-hidden="true"></div>
+                    <img src="./assets/images/tuananh-nobg.png" alt="Nguyen Tuan Anh" loading="lazy">
                 </div>
-                
-                <div class="container footer-grid fade-up">
-                    <div class="f-col">
-                        <span class="f-label">DROP A LINE</span>
-                        <a href="mailto:nguyentuananh512005@gmail.com" class="f-link hover-flip" data-hover="nguyentuananh512005@gmail.com"><span>nguyentuananh512005@gmail.com</span></a>
-                    </div>
-                    <div class="f-col f-social">
-                        <span class="f-label">SOCIALS</span>
-                        <a href="https://www.facebook.com/nguyen.tuan.anh.174068" target="_blank" class="f-link hover-flip" data-hover="FACEBOOK"><span>FACEBOOK</span></a>
-                        <a href="#" class="f-link hover-flip" data-hover="GITHUB"><span>GITHUB</span></a>
-                    </div>
+                <div class="about__copy" data-animate>
+                    <p class="section-kicker reveal-line">About</p>
+                    <h2 id="about-title" class="about__quote split-text">Không chỉ là một kỹ sư phần mềm, tôi là một kiến trúc sư chuyên biệt xây dựng nên những hệ thống tự động hoá và tư duy AI cốt lõi.</h2>
+                    <p class="about__body reveal-up"><span>K</span>ết nối <strong>AI</strong>, dữ liệu và vận hành thực tế để biến ý tưởng thành quy trình có thể chạy, đo lường và mở rộng.</p>
+                    <a class="button button--primary magnetic" href="./assets/cv/Màu Đen Và Trắng Tối Giản Sơ Yếu Lý Lịch.pdf" download><span>Download CV</span></a>
                 </div>
-            </footer>
-
-        </div>
+            </div>
+        </section>
     </main>
 
-    <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/split-type@0.3.3/umd/index.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+    <footer id="contact" class="section contact" aria-labelledby="contact-title">
+        <div class="contact__rings" aria-hidden="true"><span></span><span></span><span></span></div>
+        <div class="container contact__grid">
+            <div data-animate>
+                <p class="section-kicker reveal-line">Contact</p>
+                <h2 id="contact-title" class="contact__title contact-title split-text">LET'S TALK</h2>
+            </div>
+            <address class="contact__links reveal-up">
+                <a class="contact__email magnetic" href="mailto:nguyentuananh512005@gmail.com">nguyentuananh512005@gmail.com</a>
+                <button type="button" class="copy-email magnetic" data-copy="nguyentuananh512005@gmail.com">Copy email</button>
+                <div class="social-links" aria-label="Social links">
+                    <a class="magnetic" href="https://www.facebook.com/nguyen.tuan.anh.174068" target="_blank" rel="noreferrer" aria-label="Facebook">Fb</a>
+                    <a class="magnetic" href="mailto:nguyentuananh512005@gmail.com" aria-label="Email">@</a>
+                </div>
+            </address>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/split-type@0.3.4/umd/index.min.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>

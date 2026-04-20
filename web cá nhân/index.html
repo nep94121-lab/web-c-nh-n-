@@ -15,8 +15,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..900&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" crossorigin="anonymous">
-    <link rel="preload" as="image" href="./assets/images/tuananh-nobg.png">
-    <link rel="stylesheet" href="css/styles.css?v=2">
+    <link rel="preload" as="image" href="./assets/images/tuananh-portrait-crop.png">
+    <link rel="stylesheet" href="css/styles.css?v=20">
 </head>
 <body>
     <a class="skip-link" href="#site-content">Skip to content</a>
@@ -45,6 +45,7 @@
             <a href="#projects">Projects</a>
             <a href="#experience">Experience</a>
             <a href="#skills">Skills</a>
+            <a href="#about">About</a>
             <a href="#contact">Contact</a>
         </nav>
         <button class="menu-toggle magnetic" type="button" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false">
@@ -72,7 +73,7 @@
             <div class="hero__grid container">
                 <div class="hero__copy">
                     <p class="hero__eyebrow reveal-line">Nguyen Tuan Anh / AI Architect</p>
-                    <h1 id="hero-title" class="hero__title split-hero" aria-label="Turning raw data into intelligent workflows">
+                    <h1 id="hero-title" class="hero__title" aria-label="Turning raw data into intelligent workflows">
                         <span class="hero-word hero-word--thin">TURNING</span>
                         <span class="hero-word hero-word--strong">RAW DATA</span>
                         <span class="hero-word hero-word--accent">INTO</span>
@@ -84,6 +85,11 @@
                         <a class="button button--primary magnetic" href="#projects"><span>View projects</span></a>
                         <a class="button button--ghost magnetic" href="mailto:nguyentuananh512005@gmail.com"><span>Contact me</span></a>
                     </div>
+                    <nav class="hero__quicklinks reveal-up" aria-label="Fast portfolio routes">
+                        <a class="surface-link magnetic" href="#workflow-title"><span>Process</span><strong>04 steps</strong></a>
+                        <a class="surface-link magnetic" href="#stats"><span>Impact</span><strong>15+ builds</strong></a>
+                        <a class="surface-link magnetic" href="#about"><span>About</span><strong>AI systems</strong></a>
+                    </nav>
                 </div>
 
                 <div class="hero__visual reveal-scale" aria-label="Portrait of Nguyen Tuan Anh">
@@ -91,7 +97,7 @@
                     <figure class="profile-orbit parallax-item" data-speed="-0.12" data-tilt>
                         <span class="profile-orbit__ring profile-orbit__ring--one" aria-hidden="true"></span>
                         <span class="profile-orbit__ring profile-orbit__ring--two" aria-hidden="true"></span>
-                        <img src="./assets/images/tuananh-nobg.png" alt="Nguyen Tuan Anh" fetchpriority="high">
+                        <img src="./assets/images/tuananh-portrait-crop.png" alt="Nguyen Tuan Anh" width="695" height="1365" fetchpriority="high" decoding="async">
                     </figure>
                     <div class="hero-chip hero-chip--top parallax-item" data-speed="0.18">AI Architect</div>
                     <div class="hero-chip hero-chip--middle parallax-item" data-speed="-0.08">Workflow Systems</div>
@@ -104,6 +110,41 @@
             <a class="scroll-cue magnetic" href="#projects" aria-label="Scroll to projects"><span></span>Scroll</a>
         </section>
 
+        <section class="workflow-strip" aria-labelledby="workflow-title">
+            <div class="container workflow-strip__grid">
+                <div class="workflow-strip__intro" data-animate>
+                    <p class="section-kicker reveal-line">Operating flow</p>
+                    <h2 id="workflow-title" class="workflow-strip__title split-text">Từ dữ liệu rời rạc đến hệ thống chạy được.</h2>
+                </div>
+                <div class="workflow-steps" aria-label="AI workflow process">
+                    <article class="workflow-step reveal-up">
+                        <span class="workflow-step__index">01</span>
+                        <h3>Map</h3>
+                        <p>Gỡ bài toán thành input, rule và output rõ ràng.</p>
+                        <div class="workflow-meter" aria-hidden="true"><span style="--meter: 100%"></span></div>
+                    </article>
+                    <article class="workflow-step reveal-up">
+                        <span class="workflow-step__index">02</span>
+                        <h3>Build</h3>
+                        <p>Dựng prototype nhanh, kiểm chứng bằng dữ liệu thật.</p>
+                        <div class="workflow-meter" aria-hidden="true"><span style="--meter: 100%"></span></div>
+                    </article>
+                    <article class="workflow-step reveal-up">
+                        <span class="workflow-step__index">03</span>
+                        <h3>Automate</h3>
+                        <p>Nối API, agent và dashboard thành quy trình liền mạch.</p>
+                        <div class="workflow-meter" aria-hidden="true"><span style="--meter: 100%"></span></div>
+                    </article>
+                    <article class="workflow-step reveal-up">
+                        <span class="workflow-step__index">04</span>
+                        <h3>Measure</h3>
+                        <p>Theo dõi hiệu quả, tối ưu chi phí và mở rộng đúng lúc.</p>
+                        <div class="workflow-meter" aria-hidden="true"><span style="--meter: 100%"></span></div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
         <section id="projects" class="section projects" aria-labelledby="projects-title">
             <div class="container">
                 <div class="section-heading" data-animate>
@@ -114,7 +155,7 @@
                     <article class="project-card project-card--featured reveal-up" data-tilt>
                         <a href="#contact" aria-label="Discuss AI Education Platform">
                             <div class="project-card__media image-wipe parallax-item" data-speed="0.08">
-                                <img src="./assets/projects/project-teaching.png" alt="AI Education Platform preview" loading="lazy">
+                                <img src="./assets/projects/project-teaching.png" alt="AI Education Platform preview" width="1024" height="1024" loading="lazy" decoding="async">
                                 <span class="project-card__arrow" aria-hidden="true">↗</span>
                             </div>
                             <div class="project-card__body">
@@ -128,7 +169,7 @@
                     <article class="project-card reveal-up" data-tilt>
                         <a href="#contact" aria-label="Discuss Smart Workflow Auto">
                             <div class="project-card__media image-wipe parallax-item" data-speed="0.06">
-                                <img src="./assets/projects/project-firecrawl.png" alt="Smart Workflow Auto preview" loading="lazy">
+                                <img src="./assets/projects/project-firecrawl.png" alt="Smart Workflow Auto preview" width="1024" height="1024" loading="lazy" decoding="async">
                                 <span class="project-card__arrow" aria-hidden="true">↗</span>
                             </div>
                             <div class="project-card__body">
@@ -142,7 +183,7 @@
                     <article class="project-card reveal-up" data-tilt>
                         <a href="#contact" aria-label="Discuss Data Analysis Tool">
                             <div class="project-card__media image-wipe parallax-item" data-speed="0.04">
-                                <img src="./assets/projects/project-tiktok.png" alt="Data Analysis Tool preview" loading="lazy">
+                                <img src="./assets/projects/project-tiktok.png" alt="Data Analysis Tool preview" width="1024" height="1024" loading="lazy" decoding="async">
                                 <span class="project-card__arrow" aria-hidden="true">↗</span>
                             </div>
                             <div class="project-card__body">
@@ -273,83 +314,110 @@
                     <h2 id="skills-title" class="section-title split-text">Capabilities for fast-moving AI work.</h2>
                 </div>
             </div>
-            <div class="skills-marquee reveal-up" aria-label="Skill list">
-                <div class="skills-row skills-row--left">
+            <div class="skills-marquee skills-board reveal-up" aria-label="Skill list">
+                <div class="skills-row skills-row--core">
                     <span class="skill-pill">Research Automation</span>
                     <span class="skill-pill">Workflow Design</span>
                     <span class="skill-pill">Prompt Systems</span>
-                    <span class="skill-pill">Sức khoẻ thể chất dẻo dai</span>
+                    <span class="skill-pill">Nắm bắt Công nghệ mới</span>
                     <span class="skill-pill">Tư duy Sáng tạo AI</span>
                     <span class="skill-pill">Xử lý Vấn đề đa chiều</span>
-                    <span class="skill-pill">Nắm bắt Công nghệ mới</span>
                     <span class="skill-pill">Ngôn ngữ và Thuyết trình</span>
-                    <span class="skill-pill">Research Automation</span>
-                    <span class="skill-pill">Workflow Design</span>
-                    <span class="skill-pill">Prompt Systems</span>
                     <span class="skill-pill">Sức khoẻ thể chất dẻo dai</span>
-                    <span class="skill-pill">Tư duy Sáng tạo AI</span>
-                    <span class="skill-pill">Xử lý Vấn đề đa chiều</span>
-                    <span class="skill-pill">Nắm bắt Công nghệ mới</span>
-                    <span class="skill-pill">Ngôn ngữ và Thuyết trình</span>
-                </div>
-                <div class="skills-row skills-row--right">
-                    <span class="skill-pill">Ngôn ngữ và Thuyết trình</span>
-                    <span class="skill-pill">Nắm bắt Công nghệ mới</span>
-                    <span class="skill-pill">Xử lý Vấn đề đa chiều</span>
-                    <span class="skill-pill">Tư duy Sáng tạo AI</span>
-                    <span class="skill-pill">Sức khoẻ thể chất dẻo dai</span>
-                    <span class="skill-pill">Prompt Systems</span>
-                    <span class="skill-pill">Workflow Design</span>
-                    <span class="skill-pill">Research Automation</span>
-                    <span class="skill-pill">Ngôn ngữ và Thuyết trình</span>
-                    <span class="skill-pill">Nắm bắt Công nghệ mới</span>
-                    <span class="skill-pill">Xử lý Vấn đề đa chiều</span>
-                    <span class="skill-pill">Tư duy Sáng tạo AI</span>
-                    <span class="skill-pill">Sức khoẻ thể chất dẻo dai</span>
-                    <span class="skill-pill">Prompt Systems</span>
-                    <span class="skill-pill">Workflow Design</span>
-                    <span class="skill-pill">Research Automation</span>
                 </div>
             </div>
         </section>
 
-        <section id="about" class="section about" aria-labelledby="about-title">
+        <section id="about" class="section about about--elevated" aria-labelledby="about-title">
             <div class="container about__grid">
-                <div class="about__media reveal-scale parallax-item" data-speed="-0.08" data-tilt>
-                    <div class="orb orb--about" aria-hidden="true"></div>
-                    <img src="./assets/images/tuananh-nobg.png" alt="Nguyen Tuan Anh" loading="lazy">
+                <div class="about__media reveal-scale parallax-item" data-speed="-0.04" data-tilt>
+                    <figure class="about-photo">
+                        <img src="./assets/images/z7628986500014_53e685b2c641f41e197bf7e039eb74ae.jpg" alt="Nguyen Tuan Anh" width="2592" height="1728" loading="eager" decoding="async">
+                        <figcaption>AI systems / education / automation</figcaption>
+                    </figure>
+                    <div class="about-proof" aria-label="Working style">
+                        <span>Build style</span>
+                        <strong>Prototype fast. Measure early. Scale clean.</strong>
+                    </div>
                 </div>
                 <div class="about__copy" data-animate>
                     <p class="section-kicker reveal-line">About</p>
-                    <h2 id="about-title" class="about__quote split-text">Không chỉ là một kỹ sư phần mềm, tôi là một kiến trúc sư chuyên biệt xây dựng nên những hệ thống tự động hoá và tư duy AI cốt lõi.</h2>
-                    <p class="about__body reveal-up"><span>K</span>ết nối <strong>AI</strong>, dữ liệu và vận hành thực tế để biến ý tưởng thành quy trình có thể chạy, đo lường và mở rộng.</p>
-                    <a class="button button--primary magnetic" href="./assets/cv/Màu Đen Và Trắng Tối Giản Sơ Yếu Lý Lịch.pdf" download><span>Download CV</span></a>
+                    <h2 id="about-title" class="about__quote split-text">Tôi thiết kế những hệ thống AI có thể đi từ ý tưởng đến vận hành thật.</h2>
+                    <p class="about__body reveal-up">Tôi kết nối <strong>AI</strong>, dữ liệu, nội dung và quy trình vận hành để tạo ra hệ thống rõ ràng, có thể đo lường và mở rộng. Cách làm của tôi là bắt đầu từ bài toán thật, dựng thử nhanh, rồi biến phần hiệu quả thành hệ thống chạy ổn định.</p>
+                    <div class="about-pillars reveal-up" aria-label="Core strengths">
+                        <article>
+                            <span>01</span>
+                            <h3>System Thinking</h3>
+                            <p>Nhìn toàn cảnh input, rule, agent và output trước khi xây.</p>
+                        </article>
+                        <article>
+                            <span>02</span>
+                            <h3>AI Workflow</h3>
+                            <p>Biến công cụ AI thành quy trình thực tế cho học tập và vận hành.</p>
+                        </article>
+                        <article>
+                            <span>03</span>
+                            <h3>Creative Ops</h3>
+                            <p>Kết hợp nội dung, dữ liệu và tự động hóa để ra quyết định nhanh hơn.</p>
+                        </article>
+                    </div>
+                    <div class="about-flow reveal-up" aria-label="Working process">
+                        <span>Map</span>
+                        <span>Prototype</span>
+                        <span>Automate</span>
+                        <span>Optimize</span>
+                    </div>
+                    <div class="about-actions reveal-up">
+                        <a class="button button--primary magnetic" href="./assets/cv/Màu Đen Và Trắng Tối Giản Sơ Yếu Lý Lịch.pdf" download><span>Download CV</span></a>
+                        <a class="button button--ghost magnetic" href="mailto:nguyentuananh512005@gmail.com?subject=AI%20workflow%20project"><span>Start a project</span></a>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer id="contact" class="section contact" aria-labelledby="contact-title">
+    <footer id="contact" class="section contact contact--elevated" aria-labelledby="contact-title">
         <div class="contact__rings" aria-hidden="true"><span></span><span></span><span></span></div>
         <div class="container contact__grid">
-            <div data-animate>
+            <div class="contact__intro" data-animate>
                 <p class="section-kicker reveal-line">Contact</p>
                 <h2 id="contact-title" class="contact__title contact-title split-text">LET'S TALK</h2>
+                <p class="contact__lead reveal-up">Gửi tôi bài toán bạn đang muốn tự động hóa. Tôi sẽ phản hồi với hướng triển khai ngắn gọn, thực tế và có thể bắt đầu ngay.</p>
+                <div class="contact-status reveal-up">
+                    <span aria-hidden="true"></span>
+                    Available for AI workflow projects.
+                </div>
             </div>
-            <address class="contact__links reveal-up">
-                <a class="contact__email magnetic" href="mailto:nguyentuananh512005@gmail.com">nguyentuananh512005@gmail.com</a>
-                <button type="button" class="copy-email magnetic" data-copy="nguyentuananh512005@gmail.com">Copy email</button>
-                <div class="social-links" aria-label="Social links">
-                    <a class="magnetic" href="https://www.facebook.com/nguyen.tuan.anh.174068" target="_blank" rel="noreferrer" aria-label="Facebook">Fb</a>
-                    <a class="magnetic" href="mailto:nguyentuananh512005@gmail.com" aria-label="Email">@</a>
+            <address class="contact__links contact-panel reveal-up">
+                <div class="contact-panel__top">
+                    <span>Email direct</span>
+                    <a class="contact__email magnetic" href="mailto:nguyentuananh512005@gmail.com"><span>nguyentuananh512005</span><span>@gmail.com</span></a>
+                    <button type="button" class="copy-email magnetic" data-copy="nguyentuananh512005@gmail.com">Copy email</button>
+                </div>
+                <div class="contact-routes" aria-label="Contact routes">
+                    <a class="contact-route magnetic" href="mailto:nguyentuananh512005@gmail.com?subject=AI%20workflow%20project">
+                        <span>Project brief</span>
+                        <strong>Gửi mô tả bài toán</strong>
+                    </a>
+                    <a class="contact-route magnetic" href="https://www.facebook.com/nguyen.tuan.anh.174068" target="_blank" rel="noreferrer">
+                        <span>Facebook</span>
+                        <strong>Nhắn nhanh</strong>
+                    </a>
+                    <a class="contact-route magnetic" href="./assets/cv/Màu Đen Và Trắng Tối Giản Sơ Yếu Lý Lịch.pdf" download>
+                        <span>Profile</span>
+                        <strong>Tải CV</strong>
+                    </a>
+                </div>
+                <div class="contact-meta">
+                    <span>Response window</span>
+                    <strong>Within 24h</strong>
+                    <span>Location</span>
+                    <strong>Vietnam / Remote</strong>
                 </div>
             </address>
         </div>
     </footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdn.jsdelivr.net/npm/split-type@0.3.4/umd/index.min.js"></script>
-    <script src="js/script.js"></script>
+    <script defer src="js/script.js"></script>
 </body>
 </html>

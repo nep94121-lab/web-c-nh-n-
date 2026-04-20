@@ -1,13 +1,63 @@
-﻿document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const finePointer = window.matchMedia("(pointer: fine) and (min-width: 900px)").matches;
-    const canAnimate = !reducedMotion && Boolean(window.gsap);
-    const hasScrollTrigger = canAnimate && Boolean(window.ScrollTrigger);
+    const coarsePointer = window.matchMedia("(pointer: coarse)").matches;
+    const smallViewport = window.matchMedia("(max-width: 859px)").matches;
+    const richMotion = !reducedMotion;
+    let canAnimate = richMotion && Boolean(window.gsap);
+    let hasScrollTrigger = canAnimate && Boolean(window.ScrollTrigger);
+    document.documentElement.classList.toggle("is-rich-motion", richMotion);
+    document.documentElement.classList.toggle("is-lite-motion", !richMotion);
+    if ("scrollRestoration" in window.history) {
+        window.history.scrollRestoration = "manual";
+    }
+    if (!window.location.hash) {
+        window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+    }
 
-    if (hasScrollTrigger) {
+    /* ======== MOBILE / LITE-MOTION FALLBACK ======== */
+    /* Ensure ALL content is visible when GSAP won't animate */
+    const ensureFallbackVisibility = () => {
+        if (richMotion) return;
+        const selectors = [
+            '.hero__eyebrow', '.hero__subtitle', '.hero__actions',
+            '.hero__quicklinks', '.profile-orbit', '.hero-chip',
+            '.signal-stack', '.site-header', '.scroll-cue',
+            '.split-hero', '.split-hero .char', '.split-hero .word', '.split-hero .line',
+            '.split-text', '.split-text .char', '.split-text .word', '.split-text .line',
+            '.hero-word', '.hero__title',
+            '.reveal-up', '.reveal-scale', '.reveal-line', '.image-wipe',
+            '[data-animate]', '.section-heading',
+            '.project-card', '.stat-card', '.education-card',
+            '.timeline-item', '.workflow-step',
+            '.about__copy', '.about__media', '.about-pillars',
+            '.about-flow', '.about-actions', '.about-proof',
+            '.contact__intro', '.contact-panel',
+            '.contact-title', '.contact__title',
+            '.counter'
+        ];
+        selectors.forEach(sel => {
+            document.querySelectorAll(sel).forEach(el => {
+                el.style.opacity = '1';
+                el.style.visibility = 'visible';
+                el.style.transform = 'none';
+                el.style.clipPath = 'none';
+                el.style.filter = 'none';
+            });
+        });
+        /* Show counters with final values */
+        document.querySelectorAll('.counter').forEach(c => {
+            c.textContent = c.dataset.target || '0';
+        });
+    };
+
+    const setupScrollTrigger = () => {
+        if (!hasScrollTrigger) return;
         gsap.registerPlugin(ScrollTrigger);
         ScrollTrigger.config({ limitCallbacks: true, ignoreMobileResize: true });
-    }
+    };
+
+    setupScrollTrigger();
 
     const getHashTarget = (href) => {
         if (!href || href === "#") return null;
@@ -16,6 +66,56 @@
         } catch (error) {
             return null;
         }
+    };
+
+    const loadScript = (src) => new Promise((resolve) => {
+        let settled = false;
+        let timer = 0;
+        const finish = () => {
+            if (settled) return;
+            settled = true;
+            window.clearTimeout(timer);
+            resolve();
+        };
+        const existing = document.querySelector(`script[src="${src}"]`);
+        if (existing) {
+            if (existing.dataset.ready) {
+                resolve();
+                return;
+            }
+            timer = window.setTimeout(finish, 1800);
+            existing.addEventListener("load", finish, { once: true });
+            existing.addEventListener("error", finish, { once: true });
+            return;
+        }
+
+        const script = document.createElement("script");
+        script.src = src;
+        script.async = false;
+        script.crossOrigin = "anonymous";
+        script.referrerPolicy = "no-referrer";
+        script.addEventListener("load", () => {
+            script.dataset.ready = "true";
+            finish();
+        }, { once: true });
+        script.addEventListener("error", finish, { once: true });
+        timer = window.setTimeout(finish, 1800);
+        document.head.appendChild(script);
+    });
+
+    const loadMotionLibraries = async () => {
+        if (!richMotion) return;
+        if (!window.gsap) {
+            await loadScript("https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js");
+        }
+        await Promise.all([
+            window.ScrollTrigger ? Promise.resolve() : loadScript("https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"),
+            window.SplitType ? Promise.resolve() : loadScript("https://cdn.jsdelivr.net/npm/split-type@0.3.4/umd/index.min.js"),
+            window.Lenis ? Promise.resolve() : loadScript("https://unpkg.com/lenis@1.1.20/dist/lenis.min.js")
+        ]);
+        canAnimate = richMotion && Boolean(window.gsap);
+        hasScrollTrigger = canAnimate && Boolean(window.ScrollTrigger);
+        setupScrollTrigger();
     };
 
     const runLoader = () => {
@@ -30,6 +130,7 @@
         if (!canAnimate) {
             loader.remove();
             document.body.classList.remove("is-locked");
+            ensureFallbackVisibility();
             return Promise.resolve();
         }
 
@@ -55,18 +156,19 @@
         if (!canAnimate || !window.SplitType) return;
         document.querySelectorAll(".split-hero, .split-text").forEach((element) => {
             if (element.dataset.splitReady) return;
-            new SplitType(element, { types: "lines, words, chars", tagName: "span" });
+            const splitTypes = element.classList.contains('split-hero') ? "words, chars" : "lines, words, chars";
+            new SplitType(element, { types: splitTypes, tagName: "span" });
             element.dataset.splitReady = "true";
         });
     };
 
     const animateHero = () => {
         if (!canAnimate) return;
-        const chars = document.querySelectorAll(".split-hero .char");
+        const words = document.querySelectorAll(".hero__title .hero-word");
         gsap.timeline({ defaults: { ease: "expo.out" } })
             .from(".site-header", { y: -28, autoAlpha: 0, duration: 0.6 })
             .from(".hero__eyebrow", { clipPath: "inset(0 100% 0 0)", duration: 0.65 }, "-=0.25")
-            .from(chars, { yPercent: 108, rotateX: -40, autoAlpha: 0, duration: 0.9, stagger: { amount: 0.55, from: "start" } }, "-=0.2")
+            .from(words, { yPercent: 108, rotateX: -40, autoAlpha: 0, duration: 0.85, stagger: { amount: 0.45, from: "start" }, clearProps: "all" }, "-=0.2")
             .from(".hero__subtitle, .hero__actions", { y: 30, autoAlpha: 0, duration: 0.72, stagger: 0.08 }, "-=0.45")
             .from(".profile-orbit", { y: 54, scale: 0.92, autoAlpha: 0, duration: 0.95 }, "-=0.72")
             .from(".hero-chip, .signal-stack", { y: 22, autoAlpha: 0, duration: 0.62, stagger: 0.08 }, "-=0.42");
@@ -268,15 +370,60 @@
         });
     };
 
+    let lenis;
+    const initLenis = () => {
+        if (!richMotion || !window.Lenis) return;
+        lenis = new Lenis({
+            autoRaf: false,
+            lerp: 0.055,
+            smoothWheel: true,
+            syncTouch: true
+        });
+
+        if (hasScrollTrigger && window.gsap) {
+            lenis.on('scroll', ScrollTrigger.update);
+            gsap.ticker.add((time) => {
+                lenis.raf(time * 1000);
+            });
+            gsap.ticker.lagSmoothing(0);
+        }
+    };
+
     const smoothAnchors = () => {
+        const getAnchorOffset = () => {
+            const header = document.querySelector("[data-header]");
+            const height = header ? header.getBoundingClientRect().height : 72;
+            return Math.max(84, Math.round(height + 24));
+        };
+
+        const scrollToTarget = (target, behavior = reducedMotion ? "auto" : "smooth") => {
+            if (lenis && target) {
+                lenis.scrollTo(target, { offset: -getAnchorOffset() });
+            } else {
+                const top = target.getBoundingClientRect().top + window.scrollY - getAnchorOffset();
+                window.scrollTo({ top: Math.max(0, top), left: 0, behavior });
+            }
+        };
+
         document.querySelectorAll('a[href^="#"]').forEach((link) => {
             link.addEventListener("click", (event) => {
-                const target = getHashTarget(link.getAttribute("href"));
+                const href = link.getAttribute("href");
+                const target = getHashTarget(href);
                 if (!target) return;
                 event.preventDefault();
-                target.scrollIntoView({ behavior: reducedMotion ? "auto" : "smooth", block: "start" });
+                scrollToTarget(target);
+                if (href && href !== window.location.hash) {
+                    window.history.pushState(null, "", href);
+                }
             });
         });
+
+        if (window.location.hash) {
+            const target = getHashTarget(window.location.hash);
+            if (target) {
+                window.setTimeout(() => scrollToTarget(target, "auto"), 80);
+            }
+        }
     };
 
     const tilt = () => {
@@ -413,6 +560,55 @@
         });
     };
 
+    const universalInteractions = () => {
+        const selector = [
+            "a",
+            "button",
+            ".button",
+            ".surface-link",
+            ".contact-route",
+            ".copy-email",
+            ".project-card a",
+            ".tech-tags span",
+            ".skill-pill",
+            ".about-flow span"
+        ].join(",");
+
+        document.querySelectorAll(selector).forEach((element) => {
+            element.classList.add("interactive-surface");
+
+            element.addEventListener("pointerdown", (event) => {
+                element.classList.add("is-pressing");
+                if (reducedMotion) return;
+
+                const rect = element.getBoundingClientRect();
+                element.style.setProperty("--tap-x", `${event.clientX - rect.left}px`);
+                element.style.setProperty("--tap-y", `${event.clientY - rect.top}px`);
+                element.querySelectorAll(":scope > .tap-ripple").forEach((ripple) => ripple.remove());
+                const ripple = document.createElement("span");
+                ripple.className = "tap-ripple";
+                ripple.setAttribute("aria-hidden", "true");
+                ripple.style.left = `${event.clientX - rect.left}px`;
+                ripple.style.top = `${event.clientY - rect.top}px`;
+                element.appendChild(ripple);
+                element.classList.remove("is-rippling");
+                void element.offsetWidth;
+                element.classList.add("is-rippling");
+            }, { passive: true });
+
+            ["pointerup", "pointercancel", "pointerleave", "blur"].forEach((type) => {
+                element.addEventListener(type, () => element.classList.remove("is-pressing"), { passive: true });
+            });
+
+            element.addEventListener("animationend", (event) => {
+                if (event.animationName === "tap-ripple") {
+                    element.classList.remove("is-rippling");
+                    event.target.remove();
+                }
+            });
+        });
+    };
+
     const waitForFonts = async () => {
         if (!document.fonts || !document.fonts.ready) return;
         await Promise.race([
@@ -422,11 +618,16 @@
     };
 
     const init = async () => {
-        await waitForFonts();
+        /* Immediately show content for non-rich-motion devices */
+        ensureFallbackVisibility();
+        await loadMotionLibraries();
+        if (richMotion) await waitForFonts();
+        initLenis();
         splitText();
         smoothAnchors();
         mobileMenu();
         copyEmail();
+        universalInteractions();
         headerState();
         activeNavigation();
         await runLoader();
@@ -442,6 +643,10 @@
         if (hasScrollTrigger) {
             window.addEventListener("load", () => ScrollTrigger.refresh(), { once: true });
             ScrollTrigger.refresh();
+        }
+        /* Final safety: ensure everything shows after all setup */
+        if (!richMotion) {
+            requestAnimationFrame(ensureFallbackVisibility);
         }
     };
 

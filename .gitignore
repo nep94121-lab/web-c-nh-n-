@@ -1,0 +1,10 @@
+.cm/
+.vercel/
+.aider*
+codex-team-orchestrator/
+docs/
+TDS*.pdf
+deploy-len-vercel.bat
+AI-AGENT-ONBOARDING.md
+node_modules/
+*.log

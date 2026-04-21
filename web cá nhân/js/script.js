@@ -618,36 +618,62 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     const init = async () => {
-        /* Immediately show content for non-rich-motion devices */
-        ensureFallbackVisibility();
-        await loadMotionLibraries();
-        if (richMotion) await waitForFonts();
-        initLenis();
-        splitText();
+        /* === STATIC MODE: No motion animations, hover + smooth scroll only === */
+
+        /* Force ALL content visible immediately */
+        const allAnimated = document.querySelectorAll(
+            '.hero__eyebrow, .hero__subtitle, .hero__actions, .hero__quicklinks, .profile-orbit, .hero-chip, .signal-stack, .scroll-cue, .split-hero, .split-hero .char, .split-hero .word, .split-hero .line, .split-text, .split-text .char, .split-text .word, .split-text .line, .hero-word, .hero__title, .reveal-up, .reveal-scale, .reveal-line, .image-wipe, [data-animate], .section-heading, .project-card, .stat-card, .education-card, .timeline-item, .workflow-step, .about__copy, .about__media, .about-pillars, .about-flow, .about-actions, .about-proof, .contact__intro, .contact-panel, .contact-title, .contact__title, .counter'
+        );
+        allAnimated.forEach(el => {
+            el.style.opacity = '1';
+            el.style.visibility = 'visible';
+            el.style.transform = 'none';
+            el.style.clipPath = 'none';
+            el.style.filter = 'none';
+        });
+
+        /* Show counters with final values */
+        document.querySelectorAll('.counter').forEach(c => {
+            c.textContent = c.dataset.target || '0';
+        });
+
+        /* Remove loader instantly */
+        const loader = document.querySelector('.loader');
+        if (loader) loader.remove();
+        document.body.classList.remove('is-locked');
+
+        /* Load GSAP + Lenis for hover effects + smooth scrolling */
+        if (!window.gsap) {
+            await loadScript("https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js");
+        }
+        if (!window.Lenis) {
+            await loadScript("https://unpkg.com/lenis@1.1.20/dist/lenis.min.js");
+        }
+        canAnimate = Boolean(window.gsap);
+
+        /* Lenis smooth scroll — buttery smooth like buzzworthy */
+        if (window.Lenis) {
+            lenis = new Lenis({
+                duration: 1.2,
+                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+                smoothWheel: true,
+                syncTouch: false,
+                touchMultiplier: 2,
+            });
+            gsap.ticker.add((time) => { lenis.raf(time * 1000); });
+            gsap.ticker.lagSmoothing(0);
+        }
+
+        /* Keep only hover/interaction effects */
         smoothAnchors();
         mobileMenu();
         copyEmail();
         universalInteractions();
         headerState();
-        activeNavigation();
-        await runLoader();
-        animateHero();
-        revealOnScroll();
-        parallax();
-        projectImageParallax();
-        sectionTransitions();
         tilt();
         magnetic();
         spotlightCards();
         cursor();
-        if (hasScrollTrigger) {
-            window.addEventListener("load", () => ScrollTrigger.refresh(), { once: true });
-            ScrollTrigger.refresh();
-        }
-        /* Final safety: ensure everything shows after all setup */
-        if (!richMotion) {
-            requestAnimationFrame(ensureFallbackVisibility);
-        }
     };
 
     init();

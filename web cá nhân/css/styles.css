@@ -4021,3 +4021,88 @@ time {
         display: none !important;
     }
 }
+
+/* ============================================================
+   STATIC MODE — Kill ALL auto-playing animations.
+   Hover transitions + click ripple are preserved.
+   ============================================================ */
+*, *::before, *::after {
+    animation: none !important;
+    animation-delay: 0s !important;
+    animation-duration: 0s !important;
+}
+
+/* Re-enable click ripple only */
+.is-rippling .tap-ripple {
+    animation: tap-ripple 620ms var(--ease) forwards !important;
+}
+
+/* Hide ambient background effects */
+.ambient-orb,
+.noise-texture,
+.loader,
+.scroll-cue {
+    display: none !important;
+}
+
+/* Hide contact decorative rings */
+.contact__rings {
+    display: none !important;
+}
+
+/* Force marquee tracks to be static (no scrolling) */
+.marquee-track,
+.skills-row--left,
+.skills-row--right {
+    transform: none !important;
+}
+
+/* Ensure all content is fully visible */
+.reveal-up,
+.reveal-scale,
+.reveal-line,
+.image-wipe,
+[data-animate],
+.split-text,
+.split-text .char,
+.split-hero,
+.split-hero .char,
+.hero-word,
+.hero__eyebrow,
+.hero__subtitle,
+.hero__actions,
+.hero__quicklinks,
+.profile-orbit,
+.hero-chip,
+.signal-stack,
+.about__copy,
+.about__media,
+.about-pillars,
+.about-flow,
+.about-actions,
+.about-proof,
+.contact__intro,
+.contact-panel,
+.counter,
+.section-heading,
+.project-card,
+.stat-card,
+.education-card,
+.timeline-item,
+.workflow-step {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    clip-path: none !important;
+    filter: none !important;
+}
+
+/* Header: keep centering transform, just remove decorations */
+.site-header {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+.site-header::before,
+.site-header::after {
+    display: none !important;
+}
